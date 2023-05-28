@@ -1,0 +1,64 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+
+{% block nuevoregistro %}
+<div class="nuevo-registro">
+    <button class="button-confirm btnAdd"><a type="button"><i class="bx bx-plus-circle"></i>Nuevo registro</a></button>
+</div>
+{% endblock %}
+
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Order date</th>
+    <th style="display:none;" scope="col">Filter date</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col">Name</th>
+    <th scope="col">DNI</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Date create</th>
+    <th scope="col"></th>
+
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filter %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td>
+    <td style="display:none;">{{n.date_create| date:"m/d/Y"}}</td>
+    <td style="display:none;">{{n.id}}</td>
+
+    <td>{{ n.name}}</td>
+    <td>{{ n.dni }}</td>
+    <td>{{ n.gender }}</td>
+    <td>{{ n.date_create| date:"m/d/Y"}}</td>
+
+    <td>
+        <button class="button-edit-list btnEdit"><a type="button"><i class="bi bi-pencil"></i></a></button>
+        <button class="button-cancel-list btnDel"><a type="button"><i class="bi bi-trash3"></i></a></button>
+    </td>
+
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/Modal/client_modal.js' %}"></script>
+
+{% endblock %}
