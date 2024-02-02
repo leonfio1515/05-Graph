@@ -8,11 +8,12 @@ from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', LoginView.as_view(), name='login'),
     path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(next_page = 'login'), name='logout'),
     path('register/', UserCreate.as_view(), name='register'),
     path('user_activate/<str:uidb64>/<str:token>/',UserActivate.as_view(), name='user_activate'),
-    path('', IndexView.as_view(), name='home'),
+    path('home', IndexView.as_view(), name='home'),
     path('success_register/', SuccessRegister.as_view(), name='success_register'),
 
     path('client_register/', ClientRegister.as_view(), name='client_register'),

@@ -1,0 +1,10 @@
+La siguiente aplicacion muestra graficos implementados mediante Javascript.
+Para el ejemplo se utilizara registros varios de clientes previamente cargados de donde se obtiene la informacion
+
+Para ello debera ejecutar la aplicacion mediante python manage.py runserver
+
+una vez ejecutado debera acceder a http://127.0.0.1:8000
+
+Alli debera registrarse y/o iniciar sesion.
+
+
